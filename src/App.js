@@ -3,6 +3,7 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import { Container } from "@material-ui/core";
 import Header from './components/Header/Header';
+import Definitions from './components/Definitions/Definitions';
 
 function App() {
   const [word, setWord] = useState('');
@@ -12,7 +13,7 @@ function App() {
   const dictionaryApi = async () => {
     try {
       const data = await axios.get(`https://api.dictionaryapi.dev/api/v2/entries/${category}/${word}`);
-      console.log(data);
+      // console.log(data);
       setMeanings(data.data);
 
 
@@ -21,10 +22,11 @@ function App() {
     }
   };
 
-  console.log(meanings);
+  // console.log(meanings);
 
   useEffect(() => {
     dictionaryApi();
+    // eslint-disable-next-line
   }, [word, category]);
 
 
@@ -37,6 +39,12 @@ function App() {
          word={word}
          setWord={setWord}
          />
+         {/* coditional rendering - && */}
+         {meanings && (<Definitions
+          meanings={meanings}
+          word={word}
+          category={category}
+         />)}
       </Container>
     </div>
   );
