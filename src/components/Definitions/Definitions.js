@@ -1,7 +1,7 @@
 import React from "react";
 import "./Definitions.css";
 
-const Definitions = ({ meanings, word, LightTheme, category }) => {
+const Definitions = ({ meanings, word, LightMode, category }) => {
   return (
     <div className="meanings">
       {/* audio---------------------------- */}
@@ -25,8 +25,8 @@ const Definitions = ({ meanings, word, LightTheme, category }) => {
               <div
                 className="singleMean"
                 style={{
-                  backgroundColor: LightTheme ? "#3b5360" : "white",
-                  color: LightTheme ? "white" : "black",
+                  backgroundColor: LightMode ? "#3b5360" : "white",
+                  color: LightMode ? "white" : "black",
                 }}
               >
                 <b>{def.definition}</b>
